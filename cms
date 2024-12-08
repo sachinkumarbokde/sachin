@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration xmlns="http://schemas.microsoft.com/.NetConfiguration/v2.0">
+  <appSettings>
+    <add key="ReportViewerUser" value="administrator" />
+    <add key="ReportViewerPassword" value="Password1" />
+    <add key="ReportViewerDomain" value=".\" />
+    <add key="Reportserver" value="http://10.0.227.229/ReportServer" />
+    <add key="ProviderClient" value="System.Data.SqlClient" />
+    <add key="Password" value="Password" />
+    <add key="FlagSelfRes" value="N" />
+    <add key="NNN" value="N" />
+    <add key="SmsSetting" value="Y" />
+    <add key="ReturnDays" value="15" />
+    <add key="ReturnEmpDays" value="30" />
+    <add key="Nobooks" value="5" />
+    <add key="NobooksEmp" value="10" />
+<add key="AppDate" value="250" />
+    <add key="MaxFine" value="200" />
+    <add key="FlagExpieryDate" value="06/10/2010" />
+    <add key="InternalHostName" value="localhost" />
+    <add key="McDowellsNo1" value="McDowellsNo1" />
+    <!--<add key="BasePath" value="http://localhost:1040/common/Final_CMS_2010" />-->
+    <add key="CollegeRoll" value="0206" />
+    <add key="AllSem" value="168" />
+    <!-- 
+		<add key="CollegeName" value="SPICS" />
+		<add key="CollegeAddress" value="SPICS" />		  
+    -->
+    <add key="mailServer" value="smtp.gmail.com" />
+    <add key="fromMail" value="cms.nctech@gmail.com" />
+    <add key="mailPort" value="587" />
+    <add key="mailUserID" value="cms.nctech@gmail.com" />
+    <add key="mailPassword" value="Navneet@123" />
+    <add key="CollegeName" value="GGITS JBP" />
+    <add key="CollegeAddress" value="GYANGANGA INSTITUTE OF TECHNOLOGY AND SCIENCES JABALPUR" />
+    <add key="Collegedisplay" value="GYANGANGA INSTITUTE OF TECHNOLOGY AND SCIENCES JABALPUR" />
+    <add key="orgCode" value="40056" />
+    <add key="contactPerson" value="Sachin Kumar Bokde" />
+    <add key="contactNumber" value="+91 9302633761" />
+    <add key="iManagerUrl" value="http://ggits.org/result/index.php" />
+    <add key="descriptionTitle" value="ACCREDITED BY TATA CONSULTANCY SERVICES" />
+    <add key="description" value=" " />
+  </appSettings>
+  <connectionStrings>
+    <add name="McDowellsNo1ConnectionString" connectionString="Data Source=BOKDE;Initial Catalog=CMSGGITSLIVE;User ID=sa;Password=Beedu@123;" providerName="System.Data.SqlClient" />
+  </connectionStrings>
+  <system.web>
+    <pages controlRenderingCompatibilityVersion="3.5" clientIDMode="AutoID">
+      <controls>
+        <add tagPrefix="ajax" namespace="System.Web.UI" assembly="System.Web.Extensions, Version=1.0.61025.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+      </controls>
+    </pages>
+    <!--
+          Set compilation debug="true" to insert debugging
+          symbols into the compiled page. Because this
+          affects performance, set this value to true only
+          during development.
+        -->
+    <compilation debug="true" targetFramework="4.0">
+      <assemblies>
+        <add assembly="System.Web.Extensions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+        <add assembly="Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=B03F5F7F11D50A3A" />
+        <add assembly="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=B03F5F7F11D50A3A" />
+      </assemblies>
+      <buildProviders>
+        <add extension=".rdlc" type="Microsoft.Reporting.RdlBuildProvider, Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+      </buildProviders>
+    </compilation>
+    <httpHandlers>
+      <add path="Reserved.ReportViewerWebControl.axd" verb="*" type="Microsoft.Reporting.WebForms.HttpHandler, Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" validate="false" />
+    </httpHandlers>
+    <authentication mode="Forms">
+      <forms loginUrl="Login.aspx" defaultUrl="Login.aspx" />
+    </authentication>
+    <!--
+            The <customErrors> section enables configuration 
+            of what to do if/when an unhandled error occurs 
+            during the execution of a request. Specifically, 
+            it enables developers to configure html error pages 
+            to be displayed in place of a error stack trace.
+ -->
+    <customErrors mode="Off" defaultRedirect="Errormessages.htm">
+      <error statusCode="500" redirect="Errormessages.htm?code=500" />
+      <error statusCode="404" redirect="Errormessages.htm" />
+      <error statusCode="403" redirect="Errormessages.htm" />
+    </customErrors>
+  </system.web>
+  <system.net>
+    <mailSettings>
+      <!-- For Server-->
+      <smtp from="support@rescueonline.co.uk">
+        <network host="localhost" password="" userName="" />
+      </smtp>
+    </mailSettings>
+  </system.net>
+  <system.webServer>
+        <defaultDocument>
+            <files>
+                <remove value="sachin" />
+                <remove value="default.aspx" />
+                <remove value="iisstart.htm" />
+                <remove value="index.html" />
+                <remove value="index.htm" />
+                <remove value="Default.asp" />
+                <remove value="Default.htm" />
+                <add value="default.aspx" />
+            </files>
+        </defaultDocument>
+    <!-- <defaultDocument>
+            <files>
+                <remove value="index.aspx" />
+                <add value="default.aspx" />
+            </files>
+        </defaultDocument>-->
+    
+  </system.webServer>
+  <!--<system.webServer xmlns="">
+    <validation validateIntegratedModeConfiguration="false" />
+    <handlers>
+      <add name="ReportViewerWebControlHandler" preCondition="integratedMode" verb="*" path="Reserved.ReportViewerWebControl.axd" type="Microsoft.Reporting.WebForms.HttpHandler, Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    </handlers>
+  </system.webServer>-->
+  <system.webServer xmlns="">
+    <validation validateIntegratedModeConfiguration="false" />
+    <handlers>
+      <add name="ReportViewerWebControlHandler" preCondition="integratedMode" verb="*" path="Reserved.ReportViewerWebControl.axd" type="Microsoft.Reporting.WebForms.HttpHandler, Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    </handlers>
+  </system.webServer>
+</configuration>
